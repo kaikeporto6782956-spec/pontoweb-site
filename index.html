@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PONTOWEB – Sites para o seu negócio</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0a0b0f;color:#fff;min-height:100vh;
+background-image:radial-gradient(circle at 20% 0,rgba(212,175,55,.25),transparent 40%),radial-gradient(circle at 90% 60%,rgba(212,175,55,.15),transparent 40%),linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:auto,auto,40px 40px,40px 40px}
+.glass{background:rgba(18,20,26,.58);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 0 rgba(255,255,255,.18),0 20px 40px -15px rgba(0,0,0,.7);border-radius:24px}
+header{position:sticky;top:0;z-index:10;padding:14px 20px;border-radius:0;border-width:0 0 1px}
+header b{letter-spacing:.15em;color:#E5C158}
+.bar{display:flex;gap:10px;overflow-x:auto;padding:16px 20px 0;max-width:900px;margin:auto}
+.bar button{white-space:nowrap;border-radius:999px;padding:10px 18px;color:#fff;font-size:14px;cursor:pointer}
+.bar button.on,.card:hover{border-color:rgba(212,175,55,.55)}
+.pop{max-width:860px;margin:12px auto 0;padding:28px;display:none}
+.pop.on{display:block}
+.pop p,.pop li,.card p{color:#D4D4D8;line-height:1.6}
+.pop ul{list-style:none;padding:0}
+.pop li:before{content:"✓ ";color:#E5C158;font-weight:700}
+.cta{display:inline-block;margin-top:14px;background:#E5C158;color:#111;font-weight:700;padding:12px 22px;border-radius:999px;text-decoration:none}
+main{max-width:900px;margin:auto;padding:40px 20px}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.1}
+h1 span{color:#E5C158}
+.grid{display:grid;gap:16px;margin-top:32px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{padding:28px}
+.card h3{margin-bottom:8px}
+.price{font-size:28px;font-weight:800;margin:10px 0}
+.stars span{font-size:30px;cursor:pointer;color:#555}
+.stars span.on{color:#E5C158}
+</style>
+</head>
+<body>
+<header class="glass"><b>PONTOWEB</b></header>
+<nav class="bar" id="bar"></nav>
+<div id="pops"></div>
+<main>
+<h1>Seu site profissional, <span>pronto para vender</span></h1>
+<p style="color:#D4D4D8;margin-top:16px">Criamos sites rápidos e elegantes para o seu negócio aparecer e receber clientes.</p>
+<div class="grid">
+<div class="card glass"><h3>Básico</h3><p>Página única com seus contatos.</p><div class="price">Consulte</div></div>
+<div class="card glass" style="border-color:rgba(212,175,55,.55)"><h3>Mais escolhido</h3><p>Site completo com WhatsApp e galeria.</p><div class="price">Consulte</div></div>
+<div class="card glass"><h3>Loja</h3><p>Catálogo de produtos e pedidos.</p><div class="price">Consulte</div></div>
+</div>
+</main>
+<script>
+const items=[
+["Avaliar",'<p>Toque nas estrelas:</p><div class="stars">'+[1,2,3,4,5].map(n=>'<span data-n="'+n+'">★</span>').join('')+'</div>'],
+["WhatsApp",'<p>(54) 99947-2761</p><a class="cta" href="https://wa.me/5554999472761" target="_blank">Chamar agora</a>'],
+["O que está incluso",'<ul><li>Design personalizado</li><li>Versão para celular</li><li>Botão de WhatsApp</li><li>Hospedagem inicial</li></ul>'],
+["Como funciona",'<ul><li>Você conta sua ideia</li><li>Enviamos o modelo</li><li>Ajustes e publicação</li></ul>'],
+["Benefícios",'<ul><li>Mais credibilidade</li><li>Clientes direto no WhatsApp</li><li>Entrega rápida</li></ul>']];
+const bar=document.getElementById('bar'),pops=document.getElementById('pops');
+items.forEach((it,i)=>{
+const b=document.createElement('button');b.className='glass';b.textContent=it[0];
+const p=document.createElement('div');p.className='pop glass';p.innerHTML='<h3 style="margin-bottom:10px">'+it[0]+'</h3>'+it[1]+'<p style="margin-top:14px;cursor:pointer" class="x">Fechar</p>';
+b.onclick=()=>{const was=p.classList.contains('on');document.querySelectorAll('.pop,.bar button').forEach(e=>e.classList.remove('on'));if(!was){p.classList.add('on');b.classList.add('on')}};
+p.querySelector('.x').onclick=()=>{p.classList.remove('on');b.classList.remove('on')};
+bar.append(b);pops.append(p)});
+document.querySelectorAll('.stars span').forEach(s=>s.onclick=()=>{const n=+s.dataset.n;document.querySelectorAll('.stars span').forEach(t=>t.classList.toggle('on',+t.dataset.n<=n));localStorage.setItem('nota',n)});
+</script>
+</body>
+</html>
