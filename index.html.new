@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PONTOWEB – Sites premium que vendem pelo seu negócio</title>
+<meta name="description" content="Sites rápidos, elegantes e feitos para converter visitantes em clientes pelo WhatsApp.">
+<meta name="theme-color" content="#07080b">
+<style>
+:root{--gold:#E5C158;--gold2:#b8902a;--txt:#e4e4e7;--mut:#a1a1aa}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#07080b;color:#fff;min-height:100vh;overflow-x:hidden;
+background-image:radial-gradient(circle at 15% 0,rgba(212,175,55,.22),transparent 40%),radial-gradient(circle at 90% 55%,rgba(212,175,55,.12),transparent 40%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:auto,auto,44px 44px,44px 44px}
+.glass{background:rgba(18,20,26,.58);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 20px 40px -15px rgba(0,0,0,.7);border-radius:24px}
+header{position:sticky;top:0;z-index:10;padding:14px 24px;border-radius:0;border-width:0 0 1px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;letter-spacing:.2em;background:linear-gradient(90deg,var(--gold),#fff3c4,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-cta{font-size:13px;color:#111;background:var(--gold);padding:9px 18px;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .2s}
+.nav-cta:hover{transform:scale(1.05)}
+.bar{display:flex;gap:10px;overflow-x:auto;padding:18px 20px 4px;max-width:960px;margin:auto;scrollbar-width:none}
+.bar::-webkit-scrollbar{display:none}
+.bar button{white-space:nowrap;border-radius:999px;padding:10px 18px;color:#fff;font-size:14px;cursor:pointer;transition:.25s;font-family:inherit}
+.bar button:hover{transform:translateY(-2px)}
+.bar button.on{border-color:rgba(229,193,88,.7);color:var(--gold)}
+.pop{max-width:880px;margin:12px auto 0;padding:28px;display:none;animation:pop .35s cubic-bezier(.2,.9,.3,1.2)}
+.pop.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(-10px) scale(.97)}}
+.pop p,.pop li{color:var(--txt);line-height:1.7}
+.pop ul{list-style:none;padding:0}
+.pop li:before{content:"✓ ";color:var(--gold);font-weight:700}
+.x{cursor:pointer;color:var(--mut)!important;font-size:13px}
+.cta{display:inline-block;margin-top:14px;background:linear-gradient(135deg,#f3d77a,var(--gold2));color:#111;font-weight:700;padding:14px 28px;border-radius:999px;text-decoration:none;box-shadow:0 10px 30px -8px rgba(229,193,88,.6);transition:.25s}
+.cta:hover{transform:translateY(-3px);box-shadow:0 16px 36px -8px rgba(229,193,88,.8)}
+.cta.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25);box-shadow:none;margin-left:10px}
+main{max-width:960px;margin:auto;padding:0 20px 40px}
+.hero{text-align:center;padding:80px 0 50px}
+.badge{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(229,193,88,.4);padding:7px 16px;border-radius:999px;margin-bottom:24px}
+h1{font-size:clamp(34px,7vw,68px);line-height:1.05;letter-spacing:-.02em}
+h1 span{background:linear-gradient(90deg,var(--gold),#fff3c4,var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{color:var(--txt);max-width:560px;margin:22px auto 8px;line-height:1.7;font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:40px 0}
+.stat{padding:22px;text-align:center}
+.stat b{display:block;font-size:30px;color:var(--gold)}
+.stat small{color:var(--mut)}
+h2{font-size:clamp(26px,4vw,38px);text-align:center;margin:70px 0 10px}
+.lead{text-align:center;color:var(--mut);margin-bottom:30px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{padding:30px;transition:.3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(229,193,88,.55)}
+.card.pro{border-color:rgba(229,193,88,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 25px 60px -20px rgba(229,193,88,.35)}
+.card h3{margin-bottom:8px}
+.card p{color:var(--txt);line-height:1.6}
+.ico{font-size:28px;margin-bottom:12px}
+.price{font-size:28px;font-weight:800;margin:14px 0;color:var(--gold)}
+.steps{counter-reset:s}
+.steps .card:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--gold);color:#111;font-weight:800;margin-bottom:14px}
+.final{text-align:center;padding:50px 24px;margin-top:70px}
+.final h2{margin-top:0}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:30px}
+.stars span{font-size:34px;cursor:pointer;color:#555;transition:.2s;display:inline-block}
+.stars span:hover{transform:scale(1.2)}
+.stars span.on{color:var(--gold)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+.wa{position:fixed;right:18px;bottom:18px;z-index:20;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;font-size:28px;text-decoration:none;box-shadow:0 10px 30px rgba(37,211,102,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@media(max-width:600px){.stats{grid-template-columns:1fr}.cta.ghost{margin:12px 0 0}.hero{padding-top:50px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="glass"><span class="logo">PONTOWEB</span><a class="nav-cta" href="https://wa.me/5554999472761" target="_blank" rel="noopener">Orçamento grátis</a></header>
+<nav class="bar" id="bar" aria-label="Seções"></nav>
+<div id="pops"></div>
+<main>
+<section class="hero rv">
+<span class="badge">Sites premium para pequenos negócios</span>
+<h1>Seu site profissional, <span>pronto para vender</span></h1>
+<p class="sub">Criamos sites rápidos, elegantes e pensados para transformar visitantes em clientes direto no seu WhatsApp.</p>
+<a class="cta" href="https://wa.me/5554999472761" target="_blank" rel="noopener">Quero meu site</a><a class="cta ghost" href="#pacotes">Ver pacotes</a>
+</section>
+<section class="stats rv">
+<div class="stat glass"><b>7 dias</b><small>Entrega média</small></div>
+<div class="stat glass"><b>100%</b><small>Responsivo no celular</small></div>
+<div class="stat glass"><b>24h</b><small>Resposta no WhatsApp</small></div>
+</section>
+<h2 class="rv">Por que escolher a PONTOWEB</h2>
+<p class="lead rv">Tudo o que o seu negócio precisa para ser levado a sério online.</p>
+<div class="grid rv">
+<div class="card glass"><div class="ico">⚡</div><h3>Rápido</h3><p>Páginas leves que carregam em instantes.</p></div>
+<div class="card glass"><div class="ico">💎</div><h3>Elegante</h3><p>Visual sofisticado que passa credibilidade.</p></div>
+<div class="card glass"><div class="ico">💬</div><h3>Vende no WhatsApp</h3><p>Botões estratégicos levam o cliente até você.</p></div>
+</div>
+<h2 id="pacotes" class="rv">Pacotes</h2>
+<p class="lead rv">Escolha o ideal e fale com a gente para um valor sob medida.</p>
+<div class="grid rv">
+<div class="card glass"><h3>Básico</h3><p>Página única com seus contatos e redes.</p><div class="price">Consulte</div><a class="cta" style="margin-top:0" href="https://wa.me/5554999472761" target="_blank" rel="noopener">Quero este</a></div>
+<div class="card glass pro"><h3>⭐ Mais escolhido</h3><p>Site completo com WhatsApp, galeria e seções.</p><div class="price">Consulte</div><a class="cta" style="margin-top:0" href="https://wa.me/5554999472761" target="_blank" rel="noopener">Quero este</a></div>
+<div class="card glass"><h3>Loja</h3><p>Catálogo de produtos e pedidos pelo WhatsApp.</p><div class="price">Consulte</div><a class="cta" style="margin-top:0" href="https://wa.me/5554999472761" target="_blank" rel="noopener">Quero este</a></div>
+</div>
+<h2 class="rv">Como funciona</h2>
+<p class="lead rv">Simples, do primeiro contato ao site no ar.</p>
+<div class="grid steps rv">
+<div class="card glass"><h3>Você conta a ideia</h3><p>Conversamos pelo WhatsApp sobre seu negócio.</p></div>
+<div class="card glass"><h3>Criamos o modelo</h3><p>Você recebe o design para aprovar.</p></div>
+<div class="card glass"><h3>Publicamos</h3><p>Ajustes finais e seu site vai ao ar.</p></div>
+</div>
+<section class="final glass rv">
+<h2>Vamos colocar seu negócio no mapa?</h2>
+<p class="lead">Fale agora e receba um orçamento sem compromisso.</p>
+<a class="cta" href="https://wa.me/5554999472761" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+</section>
+</main>
+<footer>© 2025 PONTOWEB · (54) 99947-2761</footer>
+<a class="wa" href="https://wa.me/5554999472761" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<script>
+const items=[
+["Avaliar",'<p>Toque nas estrelas:</p><div class="stars">'+[1,2,3,4,5].map(n=>'<span data-n="'+n+'">★</span>').join('')+'</div>'],
+["WhatsApp",'<p>(54) 99947-2761</p><a class="cta" href="https://wa.me/5554999472761" target="_blank" rel="noopener">Chamar agora</a>'],
+["O que está incluso",'<ul><li>Design personalizado</li><li>Versão para celular</li><li>Botão de WhatsApp</li><li>Hospedagem inicial</li></ul>'],
+["Como funciona",'<ul><li>Você conta sua ideia</li><li>Enviamos o modelo</li><li>Ajustes e publicação</li></ul>'],
+["Benefícios",'<ul><li>Mais credibilidade</li><li>Clientes direto no WhatsApp</li><li>Entrega rápida</li></ul>']];
+const bar=document.getElementById('bar'),pops=document.getElementById('pops');
+items.forEach(it=>{
+const b=document.createElement('button');b.className='glass';b.textContent=it[0];
+const p=document.createElement('div');p.className='pop glass';p.innerHTML='<h3 style="margin-bottom:10px">'+it[0]+'</h3>'+it[1]+'<p style="margin-top:14px" class="x">Fechar</p>';
+b.onclick=()=>{const was=p.classList.contains('on');document.querySelectorAll('.pop,.bar button').forEach(e=>e.classList.remove('on'));if(!was){p.classList.add('on');b.classList.add('on')}};
+p.querySelector('.x').onclick=()=>{p.classList.remove('on');b.classList.remove('on')};
+bar.append(b);pops.append(p)});
+const stars=document.querySelectorAll('.stars span'),saved=+localStorage.getItem('nota')||0;
+const paint=n=>stars.forEach(t=>t.classList.toggle('on',+t.dataset.n<=n));paint(saved);
+stars.forEach(s=>s.onclick=()=>{paint(+s.dataset.n);localStorage.setItem('nota',s.dataset.n)});
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
